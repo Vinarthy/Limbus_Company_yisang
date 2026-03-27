@@ -1,0 +1,40 @@
+{
+  "dialogList": [
+  {
+    "Name": "LiXiang",
+    "Speak": "我说我在单元测试你二朵隆吗",
+    "Num": "1"
+  },
+  {
+    "Name": "LinDaiyu",
+    "Speak": "这段时间可还好吗？",
+    "Num": "2"
+  },
+  {
+    "Name": "LiXiang",
+    "Speak": "黛玉，没想到你也会参加家主之争。",
+    "Num": "3"
+  },
+  {
+    "Name": "LinDaiyu",
+    "Speak": "莫非你忘了吗，哥哥。不论是过去还是现在，我们家都只有依附于其他家族才能生存。",
+    "Num": "4"
+  }
+  ,
+  {
+    "Name": "LinDaiyu",
+    "Speak": "现在不过是为薛家执刀罢了。",
+    "Num": "5"
+  },
+  {
+    "Name": "LiXiang",
+    "Speak": "原来如此，是为了宝钗姐姐的家族……",
+    "Num": "6"
+  },
+  {
+    "Name": "LinDaiyu",
+    "Speak": "是的。因此今后所剩的日子里，我也会为了谁而战斗、死去吧。",
+    "Num": "7"
+  }
+]
+}
