@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Check1 : MonoBehaviour
+//这个脚本用来管理检查的逻辑，具体是和标准数值相比对
+//然后管理顾客各种各样的反应
+public class check1 : MonoBehaviour
 {
-    //获取身上的CharcterGet组件，然后使用该代码对比返回T或者F，check代码其实多写比较好，因为写一起是真的管理麻烦，干脆直接12345标号得了喵
-    //然后就是给角色的对话返回点东西，这个是要读之前的代码的
+    [Header("设定检验数值")]
+    [SerializeField] int lollymiaomiaomiaozZhanwei;
+    [Header("路径设定")]
+    [SerializeField] private string SuccessPath;
+    [SerializeField] private string FailurePath;
+    //后面是不同的判定操作，我一会写
+    //可以再次Plot_Dy脚本然后说不同的话
 }

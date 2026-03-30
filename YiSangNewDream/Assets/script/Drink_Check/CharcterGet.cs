@@ -18,14 +18,20 @@ public class CharcterGet : MonoBehaviour
     [SerializeField] string[] names = new string[4];//Ä¿±êÃû×Ö
     void OnTriggerEnter2D(Collider2D other)
     {
-        finish_property_two Attribute = other.GetComponent<finish_property_two>();
-        Bitter = Attribute.Bitter;
-        Sour = Attribute.Sour;
-        Hot = Attribute.Hot;
-        Sweet = Attribute.Sweet;
-        Thick = Attribute.Thick;
-        salty = Attribute.salty;
-        fresh = Attribute.fresh;
-        names = (string[])Attribute.names.Clone();
+        if (other.tag== "Drink") {
+            finish_property_two Attribute = other.GetComponent<finish_property_two>();
+            Bitter = Attribute.Bitter;
+            Sour = Attribute.Sour;
+            Hot = Attribute.Hot;
+            Sweet = Attribute.Sweet;
+            Thick = Attribute.Thick;
+            salty = Attribute.salty;
+            fresh = Attribute.fresh;
+            names = (string[])Attribute.names.Clone();
+        }
+        else
+        {
+            return;
+        }
     }
 }
