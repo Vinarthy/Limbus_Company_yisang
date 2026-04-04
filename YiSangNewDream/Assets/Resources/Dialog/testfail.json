@@ -1,0 +1,19 @@
+{
+  "dialogList": [
+{
+    "Name": "LinDaiyu",
+    "Speak": "我觉得发芽的土豆不是合适的食材",
+    "Num": "1"
+  },
+  {
+    "Name": "LiXiang",
+    "Speak": "哦~鲜花盛开于薯辈之上",
+    "Num": "2"
+  },
+  {
+    "Name": "LinDaiyu",
+    "Speak": "你无敌了我说",
+    "Num": "3"
+  }
+]
+}

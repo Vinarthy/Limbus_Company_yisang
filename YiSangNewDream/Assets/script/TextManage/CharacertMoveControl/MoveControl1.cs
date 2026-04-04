@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class MoveControl1 : MonoBehaviour
     //2.补一个该不该结束对话召唤制作UI的新功能
     //其实现在唯一的问题是怎么同步re.Num的消息。
     private RecordLineNumber re;
+    public GameObject targetGameObject;
 
     void Start()
     {
@@ -39,8 +41,8 @@ public class MoveControl1 : MonoBehaviour
                 function();
                 break;
 
-            case 5:
-                Finish();
+            case 7:
+                StartCoroutine(WaitAndEnable());
                 break;
         }
     }
@@ -50,8 +52,31 @@ public class MoveControl1 : MonoBehaviour
         Debug.Log("角色动作触发");
     }
 
-    void Finish()
+    IEnumerator WaitAndEnable()
     {
-        Debug.Log("结束逻辑");
+        yield return new WaitForSeconds(0.3f);
+
+        if (targetGameObject == null) yield break;
+
+        targetGameObject.SetActive(true);
+
+        CanvasGroup cg = targetGameObject.GetComponent<CanvasGroup>();
+        if (cg == null)
+            cg = targetGameObject.AddComponent<CanvasGroup>();
+
+        // 初始状态：完全透明 + 不可交互
+        cg.alpha = 0f;
+        cg.interactable = false;
+        cg.blocksRaycasts = false;
+
+        // 渐显（1.5s）
+        cg.DOFade(1f, 0.5f)
+          .SetEase(Ease.Linear)
+          .OnComplete(() =>
+          {
+              // 动画结束后恢复交互
+              cg.interactable = true;
+              cg.blocksRaycasts = true;
+          });
     }
 }

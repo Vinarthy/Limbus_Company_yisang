@@ -1,0 +1,19 @@
+{
+  "dialogList": [
+{
+    "Name": "LinDaiyu",
+    "Speak": "这是成功文案，我想不出来测试可以测试什么",
+    "Num": "1"
+  },
+  {
+    "Name": "LiXiang",
+    "Speak": "哦~金智勋牛逼",
+    "Num": "2"
+  },
+  {
+    "Name": "LinDaiyu",
+    "Speak": "小金牛逼",
+    "Num": "3"
+  }
+]
+}
