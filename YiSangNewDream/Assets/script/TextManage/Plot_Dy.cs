@@ -3,13 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-//ok我这里规划一下
-//首先肯定是要搞模块化规范化的
-//1.切换json的时候角色要有小动态（写在Wentin函数里面了）
-//2.角色说话的时候对话框会从左边或者右边或者更多的地方飘出来（动画要求：对话气泡慢慢飘上来，然后逐渐透明度逐渐变高，完全不透明后停止运动开始用打字机模式显示文本），然后对话框会根据汉字的大小适当的调整大小，这个根据说话者的名字决定
-//3.对话框飘出来之后是打字机效果
-//4.打字机结束之后（对话完全呈现之后），过0.3-0.5s换下一行
-//5.结束，结束之后就不会再生成对话框了，并且暴露出一个public的bool指标叫对话结束
 
 //附加：我认为这个函数应该是控制角色的，并调用上述的函数，不应该耦合
 //再附加：这个脚本主要是剧情走向控制来着应该
@@ -19,6 +12,7 @@ public class Plot_Dy : MonoBehaviour
     public Wentin wentin;
     public bool dialogFinished = false;
     private PlayerInfoList dialogData;//这个好像不用挂（
+    private RecordLineNumber record;
 
     [Header("气泡坐标")]
     [SerializeField] private float x1;//其实可以直接改坐标然后在不管它然后在坐标处生成
@@ -45,6 +39,7 @@ public class Plot_Dy : MonoBehaviour
     {
         LoadJson();
         wentin.SceneMiddleStart();
+        record = GetComponent<RecordLineNumber>();
         StartCoroutine(DialogRoutine());
     }
 
@@ -70,6 +65,7 @@ public class Plot_Dy : MonoBehaviour
         obj.transform.localScale = Vector3.one * 0.1f;
 
 
+
         DialogUI dialog = obj.GetComponent<DialogUI>();
         CanvasGroup canvasGroup = obj.GetComponent<CanvasGroup>();
         if (canvasGroup == null)
@@ -80,7 +76,7 @@ public class Plot_Dy : MonoBehaviour
         // DOTween 渐显动画
         seq = DOTween.Sequence();
         seq.Append(canvasGroup.DOFade(1f, 0.2f));                  // 淡入
-        seq.Join(obj.transform.DOScale(Vector3.one, 0.35f).SetEase(Ease.OutBack)); // 待会改成下到上平移
+        seq.Join(obj.transform.DOScale(new Vector3(1f, 0.5f, 1f), 0.35f).SetEase(Ease.OutBack)); // 待会改成下到上平移
 
         // 动画完全结束后再开始打字
         seq.OnComplete(() =>
@@ -113,7 +109,7 @@ public class Plot_Dy : MonoBehaviour
         // DOTween 渐显动画
         seq = DOTween.Sequence();
         seq.Append(canvasGroup.DOFade(1f, 0.35f));                  // 淡入
-        seq.Join(obj.transform.DOScale(Vector3.one, 0.35f).SetEase(Ease.OutBack)); // 待会改成下到上平移
+        seq.Join(obj.transform.DOScale(new Vector3(1f, 0.5f, 1f), 0.35f).SetEase(Ease.OutBack)); // 待会改成下到上平移
 
         seq.OnComplete(() =>
         {
@@ -129,7 +125,7 @@ public class Plot_Dy : MonoBehaviour
         {
             DialogUI dialog;
             Sequence animSeq;
-
+            record.RecordLineNumberFunc(line.Num);
             if (line.Name == L_CharacterName)
             {
                 dialog = CreateDialogL(line.Speak,out animSeq);
@@ -173,10 +169,10 @@ public class Plot_Dy : MonoBehaviour
         Debug.Log("对话完成");
     }
 }
-//修bug:回去完成扫角色的操作和核心玩法的构建，先把图扣了
-//4.对话框的长度没根据文本长度变化而变化 5.有些汉字还是不出来，这个有空慢慢搞
 
 
 //说真的如果要管多个角色的可以一模一样的搞3个角色的代码和4个角色的代码
 //角色动态多搞几个脚本用着，不和这个耦合
 //如果一个角色有多个剧情的话，我不介意多搞几个预制件（R公司极好的克隆技术）
+
+//关于特殊的角色动态决定再开一个脚本然后在这个脚本里面调用函数

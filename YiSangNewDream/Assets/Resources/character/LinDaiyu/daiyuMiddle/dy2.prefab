@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3488295019491807140}
   - component: {fileID: 4736449657716320637}
   - component: {fileID: 845694234329329483}
+  - component: {fileID: 6534849230738410829}
   m_Layer: 0
   m_Name: dy2
   m_TagString: Untagged
@@ -112,17 +113,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wentin: {fileID: 4736449657716320637}
   dialogFinished: 0
-  x1: -1278.504
-  y1: -717.7915
+  x1: 36
+  y1: 54
   z1: 0
-  x2: -1278.504
-  y2: -717.7915
+  x2: 36
+  y2: 54
   z2: 0
   Reverse1: 0
   Reverse2: 0
   L_CharacterName: LinDaiyu
   R_CharacterName: LiXiang
-  DialogBox: {fileID: 389696370589924691, guid: ded01f6f90f5d6b48b6d95f90d131dbf, type: 3}
+  DialogBox: {fileID: 6997653496807545343, guid: 5e089c89004ea574fab7985aaf7828c6, type: 3}
   characterA: {fileID: 3141056187078530721}
   characterB: {fileID: 0}
   path: Dialog/test
+--- !u!114 &6534849230738410829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141056187078530721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e3ef8f760cea8f43a7793bd2805af7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Num: 1
