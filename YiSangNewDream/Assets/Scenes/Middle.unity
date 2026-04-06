@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lollymiaomiaomiaozZhanwei: 0
-  SuccessPath: Dialog/testsuccess
+  SuccessPath: Dialog/testsuccesss
   FailurePath: Dialog/testfail
 --- !u!1 &51940337
 GameObject:

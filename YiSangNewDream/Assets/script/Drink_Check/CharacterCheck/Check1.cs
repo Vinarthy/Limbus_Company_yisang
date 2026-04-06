@@ -26,13 +26,15 @@ public class check1 : MonoBehaviour
             Plot_Dy newdialog = GetComponent<Plot_Dy>();
             if (lollymiaomiaomiaozZhanwei >= 1)
             {
+                newdialog.x = 1;
                 newdialog.PlayNewPlot(SuccessPath);
             }
             else
             {
+                newdialog.x = 2;
                 newdialog.PlayNewPlot(FailurePath);
             }
-            Destroy(other);
+            Destroy(other.gameObject);//这个没销毁掉啊贴图还在，到时候整一下
         }
     }
 }

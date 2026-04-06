@@ -12,11 +12,12 @@ public class MoveControl1 : MonoBehaviour
 
     private RecordLineNumber re;
     public GameObject targetGameObject;
+    private Plot_Dy DialogNum;
 
     void Start()
     {
+        DialogNum = GetComponent<Plot_Dy>();
         re = GetComponent<RecordLineNumber>();
-
         // 订阅事件
         re.OnLineChanged += OnLineChanged;
     }
@@ -30,21 +31,43 @@ public class MoveControl1 : MonoBehaviour
 
     private void OnLineChanged(int line)
     {
-        // 在这里写你的“按行触发逻辑”
-        switch (line)
+        int num = DialogNum.x;
+        if (num == 0)
         {
-            case 1:
-                Debug.Log("执行第1行逻辑");
-                break;
+            // 在这里写你的“按行触发逻辑”
+            switch (line)
+            {
+                case 1:
+                    Debug.Log("执行第1行逻辑");
+                    break;
 
-            case 3:
-                Debug.Log("执行第3行动作");
-                function();
-                break;
+                case 3:
+                    Debug.Log("执行第3行动作");
+                    function();
+                    break;
 
-            case 7:
-                StartCoroutine(WaitAndEnable());
-                break;
+                case 7:
+                    StartCoroutine(WaitAndEnable());
+                    break;
+            }
+        }
+        else if(num == 1)
+        {
+            switch (line)
+            {
+                case 1:
+                    Debug.Log("这是判定成功了");
+                    break;
+            }
+        }
+        else if (num == 2)
+        {
+            switch (line)
+            {
+                case 1:
+                    Debug.Log("这是判定失败了");
+                    break;
+            }
         }
     }
 

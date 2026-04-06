@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1706.6667
     height: 976
   m_ShowMode: 4
-  m_Title: "\u9879\u76EE"
+  m_Title: "\u573A\u666F"
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -44,7 +44,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1706.6667
+    width: 1706.6666
     height: 976
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -69,7 +69,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1706.6667
+    width: 1706.6666
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -91,7 +91,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 956
-    width: 1706.6667
+    width: 1706.6666
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -114,12 +114,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-    width: 1706.6667
+    width: 1706.6666
     height: 926
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 91
+  controlID: 119
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -272,7 +272,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1362.6666
     y: 0
-    width: 344.00012
+    width: 344
     height: 926
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
@@ -418,9 +418,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c6650000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 02fbffff4e63000000640000
+      m_SelectedIDs: 98630000
+      m_LastClickedID: 25496
+      m_ExpandedIDs: 14fbfffff4ffffff0e63000000640000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -839,9 +839,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.3762952, y: -1.2406716, z: -0.04828005}
+    m_Target: {x: 0.70625716, y: -9.341541, z: -0.092864305}
     speed: 2
-    m_Value: {x: 0.3782579, y: -1.2638959, z: -0.045830045}
+    m_Value: {x: 0.70625716, y: -9.341541, z: -0.092864305}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -891,9 +891,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 5.689446
+    m_Target: 14.794324
     speed: 2
-    m_Value: 5.444446
+    m_Value: 14.794324
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/script/ScenceSwitch
+    - Assets/script
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1041,16 +1041,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 63
   m_LastFolders:
-  - Assets/script/ScenceSwitch
+  - Assets/script
   m_LastFoldersGridSize: 63
   m_LastProjectPath: G:\LollyProject\YiSangNewDream
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 222.33331}
-    m_SelectedIDs: c6650000
-    m_LastClickedID: 26054
-    m_ExpandedIDs: 00000000706500007265000074650000a8650000ae650000b0650000b6650000bc650000c865000000ca9a3b
+    m_SelectedIDs: 9e650000
+    m_LastClickedID: 26014
+    m_ExpandedIDs: 00000000706500007265000074650000966500009e650000a2650000a6650000ac65000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1204,7 +1204,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 25344
+  m_LastSelectedObjectID: 25646
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1227,7 +1227,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1362.6667
     y: 72.66667
-    width: 343.00012
+    width: 343
     height: 905
   m_SerializedDataModeController:
     m_DataMode: 0
