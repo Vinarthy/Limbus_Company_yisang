@@ -9,6 +9,7 @@ public class MoveControl1 : MonoBehaviour
     //这里也放状态机
     //2.补一个该不该结束对话召唤制作UI的新功能
     //其实现在唯一的问题是怎么同步re.Num的消息。
+
     private RecordLineNumber re;
     public GameObject targetGameObject;
 

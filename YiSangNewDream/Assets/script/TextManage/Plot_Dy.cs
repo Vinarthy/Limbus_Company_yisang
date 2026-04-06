@@ -35,6 +35,8 @@ public class Plot_Dy : MonoBehaviour
 
     [Header("文件路径")]
     public string path;
+    [Header("对话序号")]
+    public int x=0;//默认为0，根据不同的对话序号引用不同的动作，直接改在MoveControl1里面
     void Start()
     {
         LoadJson();
@@ -167,6 +169,14 @@ public class Plot_Dy : MonoBehaviour
 
         dialogFinished = true;//目前我想知道这个有什么用，但是先留着吧
         Debug.Log("对话完成");
+    }
+    //这个脚本用于重启剧情
+    public void PlayNewPlot(string newPath)
+    {
+        StopAllCoroutines();        // 停掉旧剧情（非常关键）
+        path = newPath;             // 更新路径
+        LoadJson();                 // 重新加载 JSON
+        StartCoroutine(DialogRoutine());  // 重新播放
     }
 }
 

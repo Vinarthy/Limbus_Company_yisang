@@ -140,6 +140,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetGameObject: {fileID: 235635240}
+--- !u!114 &44506403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44506396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a123d856c3b91488d1532a624cc5d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskPath: Dialog/ProduceTask/task
+  TargetText: {fileID: 1765510151}
+--- !u!70 &44506409
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44506396}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.22300316, y: 0.93625104}
+  m_Size: {x: 1.874094, y: 4.307117}
+  m_Direction: 0
+--- !u!114 &44506410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44506396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b75a42cadc2bf364a9931bdfb2c19f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lollymiaomiaomiaozZhanwei: 0
+  SuccessPath: Dialog/testsuccess
+  FailurePath: Dialog/testfail
 --- !u!1 &51940337
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,7 +985,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.8
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -946,7 +1010,7 @@ Transform:
   m_GameObject: {fileID: 706477729}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -13.94, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3681,6 +3745,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3141056187078530721, guid: 5ed0e764670ad8c4297324f23a573df5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 44506402}
+    - targetCorrespondingSourceObject: {fileID: 3141056187078530721, guid: 5ed0e764670ad8c4297324f23a573df5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 44506403}
+    - targetCorrespondingSourceObject: {fileID: 3141056187078530721, guid: 5ed0e764670ad8c4297324f23a573df5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 44506410}
+    - targetCorrespondingSourceObject: {fileID: 3141056187078530721, guid: 5ed0e764670ad8c4297324f23a573df5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 44506409}
   m_SourcePrefab: {fileID: 100100000, guid: 5ed0e764670ad8c4297324f23a573df5, type: 3}
 --- !u!1 &1973643368
 GameObject:
