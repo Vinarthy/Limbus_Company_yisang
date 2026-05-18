@@ -16,7 +16,7 @@ public class dy_choose : MonoBehaviour
         //后面是令c的character=TargetPrefeb
         if (c != null && TargetPrefeb != null)
         {
-            click.Instance.character = TargetPrefeb;
+
         }
         else
         {

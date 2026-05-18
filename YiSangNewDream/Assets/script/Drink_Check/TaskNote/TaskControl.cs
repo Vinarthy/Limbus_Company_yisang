@@ -6,10 +6,11 @@ using UnityEngine;
 public class TaskControl : MonoBehaviour
 {
     public string TaskPath = "Dialog/test"; // 建议给个默认值，路径不带扩展名
-    public TextMeshProUGUI TargetText;
+    private TextMeshProUGUI TargetText;
 
     void Start()
     {
+        FindTargetText();
         LoadJson();
     }
 
@@ -53,6 +54,33 @@ public class TaskControl : MonoBehaviour
         else
         {
             Debug.LogError($"JSON 读取失败！请检查路径：Assets/Resources/{TaskPath}.json");
+        }
+    }
+    private void FindTargetText()
+    {
+        GameObject canvasObj = GameObject.Find("Canvas");
+
+        if (canvasObj == null)
+        {
+            Debug.LogError("未找到 Canvas");
+            return;
+        }
+
+        Transform taskTransform =
+            canvasObj.transform
+            .Find("Task/tasknote/task");
+
+        if (taskTransform == null)
+        {
+            Debug.LogError("未找到路径：Canvas/Task/tasknote/task");
+            return;
+        }
+
+        TargetText = taskTransform.GetComponent<TextMeshProUGUI>();
+
+        if (TargetText == null)
+        {
+            Debug.LogError("task 上没有 TextMeshProUGUI 组件");
         }
     }
 }

@@ -13,6 +13,10 @@ GameObject:
   - component: {fileID: 4736449657716320637}
   - component: {fileID: 845694234329329483}
   - component: {fileID: 6534849230738410829}
+  - component: {fileID: 1352764249070968371}
+  - component: {fileID: 8318896255691892394}
+  - component: {fileID: 1040333236542295786}
+  - component: {fileID: 8248024269269419085}
   m_Layer: 0
   m_Name: dy2
   m_TagString: Untagged
@@ -113,20 +117,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wentin: {fileID: 4736449657716320637}
   dialogFinished: 0
-  x1: 36
-  y1: 54
-  z1: 0
-  x2: 36
-  y2: 54
-  z2: 0
-  Reverse1: 0
-  Reverse2: 0
-  L_CharacterName: LinDaiyu
-  R_CharacterName: LiXiang
+  characterList:
+  - dialogName: LiXiang
+    sceneObjectName: LiXiang
+    bubblePos: {x: 0, y: 0, z: 0}
+    reverse: 1
+    characterObj: {fileID: 0}
+  - dialogName: LinDaiyu
+    sceneObjectName: dy2(Clone)
+    bubblePos: {x: 0, y: 0, z: 0}
+    reverse: 0
+    characterObj: {fileID: 0}
   DialogBox: {fileID: 6997653496807545343, guid: 5e089c89004ea574fab7985aaf7828c6, type: 3}
-  characterA: {fileID: 3141056187078530721}
-  characterB: {fileID: 0}
   path: Dialog/test
+  x: 0
 --- !u!114 &6534849230738410829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,3 +144,80 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Num: 1
+--- !u!114 &1352764249070968371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141056187078530721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37f55b7b003a124cb02a224e1041602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetGameObject: {fileID: 0}
+--- !u!114 &8318896255691892394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141056187078530721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a123d856c3b91488d1532a624cc5d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskPath: Dialog/ProduceTask/task
+  TargetText: {fileID: 0}
+--- !u!114 &1040333236542295786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141056187078530721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b75a42cadc2bf364a9931bdfb2c19f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lollymiaomiaomiaozZhanwei: 0
+  SuccessPath: Dialog/testsuccesss
+  FailurePath: Dialog/testfail
+--- !u!70 &8248024269269419085
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141056187078530721}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.22300316, y: 0.93625104}
+  m_Size: {x: 1.874094, y: 4.307117}
+  m_Direction: 0

@@ -25,8 +25,8 @@ public class click : MonoBehaviour
         }
     }
 
-    public GameObject character;//此为设置的预制件，记得挂载到相关角色上面去
-    private GameObject Temp;
+    public List<GameObject> characters = new List<GameObject>(); // 角色列表
+    private List<GameObject> spawnedCharacters = new List<GameObject>(); // 记录已生成的角色，方便后续管理
     private string SceneName="Middle";//目标场景名
     private bool hasSpawnedInMiddle = false; // 防止重复实例化
     private string currentSceneName; // 记录当前场景名
@@ -39,7 +39,7 @@ public class click : MonoBehaviour
         // 检查是否是目标场景
         if (currentSceneName == SceneName)
         {
-            SpawnCharacterInMiddle();
+            SpawnCharactersInMiddle();
         }
         else
         {
@@ -48,17 +48,31 @@ public class click : MonoBehaviour
     }
 
     // 在Middle场景中实例化角色
-    void SpawnCharacterInMiddle()
+    void SpawnCharactersInMiddle()
     {
-        if (character != null && !hasSpawnedInMiddle)
+        if (characters == null || characters.Count == 0)
         {
-            Temp=Instantiate(character);
-            hasSpawnedInMiddle = true;
-            Debug.Log("已在Middle场景实例化角色");
+            Debug.LogWarning("角色预制件列表为空!");
+            return;
         }
-        else if (character == null)
+
+        if (!hasSpawnedInMiddle)
         {
-            Debug.LogWarning("角色预制件未分配!");
+            foreach (var prefab in characters)
+            {
+                if (prefab != null)
+                {
+                    GameObject spawned = Instantiate(prefab);
+                    spawnedCharacters.Add(spawned); // 记录引用
+                    Debug.Log("已实例化角色: " + prefab.name);
+                }
+                else
+                {
+                    Debug.LogWarning("列表中存在空的预制件引用，已跳过");
+                }
+            }
+            hasSpawnedInMiddle = true;
+            Debug.Log($"已在Middle场景实例化 {spawnedCharacters.Count} 个角色");
         }
     }
 

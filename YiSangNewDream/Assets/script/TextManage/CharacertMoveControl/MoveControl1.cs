@@ -11,13 +11,22 @@ public class MoveControl1 : MonoBehaviour
     //其实现在唯一的问题是怎么同步re.Num的消息。
 
     private RecordLineNumber re;
-    public GameObject targetGameObject;
     private Plot_Dy DialogNum;
+    private GameObject targetGameObject;
 
     void Start()
     {
         DialogNum = GetComponent<Plot_Dy>();
+
         re = GetComponent<RecordLineNumber>();
+
+        targetGameObject = FindProduceObject();
+
+        if (targetGameObject == null)
+        {
+            Debug.LogError("未找到 Canvas 下的 produce");
+        }
+
         // 订阅事件
         re.OnLineChanged += OnLineChanged;
     }
@@ -102,5 +111,29 @@ public class MoveControl1 : MonoBehaviour
               cg.interactable = true;
               cg.blocksRaycasts = true;
           });
+    }
+    private GameObject FindProduceObject()
+    {
+        Canvas[] canvases = FindObjectsOfType<Canvas>(true);
+
+        foreach (Canvas canvas in canvases)
+        {
+            // 排除 CanvasB
+            if (canvas.name == "CanvasB")
+                continue;
+
+            // 只找叫 Canvas 的
+            if (canvas.name != "Canvas")
+                continue;
+
+            Transform target = canvas.transform.Find("produce");
+
+            if (target != null)
+            {
+                return target.gameObject;
+            }
+        }
+
+        return null;
     }
 }
