@@ -79,7 +79,7 @@ public class MoveControl1 : MonoBehaviour
             }
         }
     }
-
+    //在这里写入场景已经日期更新逻辑
     void function()
     {
         Debug.Log("角色动作触发");
