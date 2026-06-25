@@ -1,117 +1,165 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StoryManager : MonoBehaviour
 {
     public static StoryManager Instance;
-
-    // µ±Ç°ÔËĞĞÊ±¾çÇé×´Ì¬
     public SaveData currentData;
 
-    // µ±Ç°¾çÇé½Úµã
-    public StoryNode currentNode;
-
-    // µ±Ç°ÊµÀı»¯¶ÔÏó
-    private GameObject currentSceneObject;
+    private GameObject currentStoryObject;
+    private GalControl currentGalControl;
 
     private void Awake()
     {
-        Instance = this;
-    }
-
-    private void Start()
-    {
-        InitializeStory();
-    }
-
-    // ÓÎÏ·Æô¶¯Ê±³õÊ¼»¯
-    void InitializeStory()
-    {
-        currentData = SaveSystem.LoadGame();
-
-        RefreshCurrentNode();
-
-        SpawnCurrentScene();
-    }
-
-    // Ë¢ĞÂµ±Ç°½Úµã
-    void RefreshCurrentNode()//Í¬²½savedataÄÚÈİ£¬·½±ã¸Ã´æ´¢Ê±´æ´¢
-    {
-        currentNode =
-            StoryDatabase.Instance.GetStoryNode(
-                currentData.chapter,
-                currentData.day,
-                currentData.scene
-            );
-    }
-
-    // É¾³ıÔ­ÓĞÔ¤ÖÆ¼şÈ»ºó¶ÔÕÕ±í¼ÓÔØĞÂµÄ
-    void SpawnCurrentScene()
-    {
-        if (currentNode == null)
+        if (Instance != null)
         {
-            Debug.LogError("µ±Ç°½ÚµãÎª¿Õ");
+            Destroy(gameObject);
             return;
         }
 
-        // É¾³ı¾É³¡¾°
-        if (currentSceneObject != null)
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        currentData = SaveSystem.LoadGame();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        UnsubscribeCurrentGal();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Before")
+            SpawnCurrentStory();
+        else if (scene.name == "Middle")
+            ClearCurrentStory();
+    }
+
+    public StoryNode GetCurrentNode()
+    {
+        return StoryDatabase.Instance.GetStoryNode(
+            currentData.chapter,
+            currentData.day,
+            currentData.scene
+        );
+    }
+
+    private void SpawnCurrentStory()
+    {
+        StoryNode node = GetCurrentNode();
+        if (node == null)
         {
-            Destroy(currentSceneObject);
+            Debug.LogError("å½“å‰å‰§æƒ…èŠ‚ç‚¹ä¸ºç©º");
+            return;
         }
 
-        GameObject prefab =
-            Resources.Load<GameObject>(
-                currentNode.prefabPath
-            );
+        ClearCurrentStory();
 
+        GameObject prefab = Resources.Load<GameObject>(node.prefabPath);
         if (prefab == null)
         {
-            Debug.LogError(
-                "Prefab²»´æÔÚ: " +
-                currentNode.prefabPath
-            );
-
+            Debug.LogError("æ‰¾ä¸åˆ°é¢„åˆ¶ä»¶ï¼š" + node.prefabPath);
             return;
         }
 
-        currentSceneObject =
-            Instantiate(prefab);
+        if (IsOpeningGalNode())
+        {
+            Transform galParent = FindOpeningGalParent();
+            if (galParent == null)
+            {
+                Debug.LogError("æœªæ‰¾åˆ° Before/Canvas/Galï¼Œæ— æ³•ç”Ÿæˆå¼€åœºå‰§æƒ…");
+                return;
+            }
+
+            currentStoryObject = Instantiate(prefab, galParent, false);
+            currentGalControl = currentStoryObject.GetComponentInChildren<GalControl>(true);
+
+            if (currentGalControl == null)
+            {
+                Debug.LogError("1-1-1 å¼€åœºé¢„åˆ¶ä»¶ç¼ºå°‘ GalControl", currentStoryObject);
+            }
+            else
+            {
+                currentGalControl.PlaybackCompleted += OnOpeningGalCompleted;
+            }
+        }
+        else
+        {
+            currentStoryObject = Instantiate(prefab);
+        }
+
+        Debug.Log($"ç”Ÿæˆå‰§æƒ…å¯¹è±¡ï¼š{node.prefabPath}");
     }
 
-    // ÍÆ½ø¾çÇé
+    private void ClearCurrentStory()
+    {
+        UnsubscribeCurrentGal();
+
+        if (currentStoryObject == null)
+            return;
+
+        Destroy(currentStoryObject);
+        currentStoryObject = null;
+    }
+
+    private bool IsOpeningGalNode()
+    {
+        return currentData.chapter == 1
+            && currentData.day == 0
+            && currentData.scene == 1;
+    }
+
+    private static Transform FindOpeningGalParent()
+    {
+        GameObject canvasObject = GameObject.Find("Canvas");
+        return canvasObject != null ? canvasObject.transform.Find("Gal") : null;
+    }
+
+    private void OnOpeningGalCompleted()
+    {
+        UnsubscribeCurrentGal();
+
+        if (currentStoryObject != null)
+        {
+            Destroy(currentStoryObject);
+            currentStoryObject = null;
+        }
+
+        Nextday();
+        SaveGame();
+        SpawnCurrentStory();
+    }
+
+    private void UnsubscribeCurrentGal()
+    {
+        if (currentGalControl != null)
+            currentGalControl.PlaybackCompleted -= OnOpeningGalCompleted;
+
+        currentGalControl = null;
+    }
+
     public void NextScene()
     {
-        currentData.scene++;//Í¬²½currentDataÄÚÈİ
-
-        RefreshCurrentNode();
-
-        SpawnCurrentScene();
+        currentData.scene++;
     }
+
     public void Nextday()
     {
-        currentData.day++;//Í¬²½currentDataÄÚÈİ
-
-        RefreshCurrentNode();
-
-        SpawnCurrentScene();
+        currentData.day++;
+        currentData.scene = 1;
     }
+
     public void Nextchapter()
     {
-        currentData.chapter++;//Í¬²½currentDataÄÚÈİ
-
-        RefreshCurrentNode();
-
-        SpawnCurrentScene();
+        currentData.chapter++;
+        currentData.day++;
+        currentData.scene = 1;
     }
 
-    // ÊÖ¶¯´æµµ
     public void SaveGame()
     {
         SaveSystem.SaveGame(currentData);
-
-        Debug.Log("ÓÎÏ·ÒÑ±£´æ");
     }
 }
-//ÏëÁËÏëÓ¦¸ÃÊÇ´æµµÊÇµ¥ÀıµÄ£¬°´·µ»ØµÄ»°Çå¿ÕÔ­ÓĞ½ÇÉ«²¢·µ»Ø³¡¾°1£¬³¡¾°1Í¨¹ıboolÀ´ÅĞ¶ÏÊÇ·ñÖØĞÂÉú³É¶ÔÏó£¨³¡¾°ÇĞ»»Ê±´¥·¢£©
-//ÌØÊâÂß¼­¸ø½ÇÉ«Åª
-//StoryManageÒªµ¥ÀıÄ£Ê½£¬È«¾Ö´æÔÚ£¬´æµµÄ£Ê½ÕâĞ©¶¼Òªµ¥Àı°ÉÎÔ²Û

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8111074531692204438}
   - component: {fileID: 957227238298000486}
   - component: {fileID: 22356885161294698}
+  - component: {fileID: 805256797683322941}
   - component: {fileID: 2584121519038209266}
   - component: {fileID: 8496318352007004346}
   m_Layer: 0
@@ -143,6 +144,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Black: {fileID: 5173243482379191491}
+--- !u!114 &805256797683322941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978756234566073081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b507525f554bf4418f6f09e7903f6a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterPrefabs:
+  - {fileID: 3141056187078530721, guid: 5ed0e764670ad8c4297324f23a573df5, type: 3}
 --- !u!95 &2584121519038209266
 Animator:
   serializedVersion: 5

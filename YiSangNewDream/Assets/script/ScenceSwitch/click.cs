@@ -75,6 +75,22 @@ public class click : MonoBehaviour
             Debug.Log($"已在Middle场景实例化 {spawnedCharacters.Count} 个角色");
         }
     }
+    public void ClearSpawnedCharacters()
+    {
+        foreach (GameObject obj in spawnedCharacters)
+        {
+            if (obj != null)
+            {
+                Destroy(obj);
+            }
+        }
 
+        spawnedCharacters.Clear();
+
+        hasSpawnedInMiddle = false;
+
+        Debug.Log("已清除所有实例化角色");//清除
+    }
 
 }
+//为什么实例化两个角色了？

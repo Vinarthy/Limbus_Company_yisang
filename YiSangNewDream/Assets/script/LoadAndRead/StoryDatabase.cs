@@ -19,18 +19,50 @@ public class StoryDatabase : MonoBehaviour
     void InitStoryData()//Resources下的路径
     {
         AddNode(
+            1, 0, 1,
+            "character/Chapter1Final/C1/S0/S1-2 Variant"//这个要在别的场景生成而且特么要指定父物体，开场生成之后就继续了
+        );
+
+        AddNode(
             1, 1, 1,
-            "StoryPrefabs/Chapter1/Day1/ClassroomMorning"
+            "character/Chapter1Final/C1/S1/donqute"
         );
 
-        AddNode(
+        AddNode(//第三幕
             1, 1, 2,
-            "StoryPrefabs/Chapter1/Day1/StreetNight"
+            "character/Chapter1Final/C1/S2/ReCall Variant"
         );
-
-        AddNode(
+        AddNode(//第2天
             1, 2, 1,
-            "StoryPrefabs/Chapter1/Day2/HomeMorning"
+            "character/Chapter1Final/C2/S1/FaustTouming"
+        );
+        AddNode(
+            1, 2, 2,
+            "character/Chapter1Final/C2/S2/donqute"
+        );
+        AddNode(
+            1, 2, 3,
+            "character/Chapter1Final/C2/S3/Shrenne"
+        );
+        AddNode(
+            1, 2, 4,
+            "character/Chapter1Final/C2/S4/ReCall"
+        );
+        AddNode(
+            1, 3, 1,
+            "character/Chapter1Final/C3/S1/Faust"
+        );
+        AddNode(
+            1, 3, 2,
+            "character/Chapter1Final/C3/S2/honglu"
+        );
+        AddNode(
+            1, 3, 3,
+            "character/Chapter1Final/C3/S3/Dongbai"
+        );
+        AddNode(
+            1, 4, 1,
+            "character/Chapter1Final/C4/S1/Rodio"
         );
     }
 
@@ -77,3 +109,4 @@ public class StoryDatabase : MonoBehaviour
         return $"{chapter}_{day}_{scene}";
     }
 }
+//改变呢？

@@ -67,7 +67,13 @@ public class MoveControl1 : MonoBehaviour
                 case 1:
                     Debug.Log("这是判定成功了");
                     break;
+                case 3:
+                    Debug.Log("更新幕");
+                    TimeBool.Instance.AdvanceType =
+                        StoryAdvanceType.Scene;
+                    break;
             }
+
         }
         else if (num == 2)
         {
@@ -76,9 +82,15 @@ public class MoveControl1 : MonoBehaviour
                 case 1:
                     Debug.Log("这是判定失败了");
                     break;
+                case 3:
+                    Debug.Log("更新幕");
+                    TimeBool.Instance.AdvanceType =
+                        StoryAdvanceType.Scene;
+                    break;
             }
         }
     }
+    //这个放日期增加逻辑
     //在这里写入场景已经日期更新逻辑
     void function()
     {

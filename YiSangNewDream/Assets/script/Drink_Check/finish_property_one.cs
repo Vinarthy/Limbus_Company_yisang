@@ -20,8 +20,6 @@ public class finish_property_one : MonoBehaviour
     private int tea_num = 0;
     private int season_num = 0;
 
-    [Header("加料交互的目标位置")]
-    public Vector3 TargetPosition;
 
     [Header("数值")]
     public int Bitter;
@@ -231,3 +229,4 @@ public class finish_property_one : MonoBehaviour
 
 }
 //真要加个冰淇淋后期也是在这里面改改
+//我草泥马这有个bug，中杯和超大杯有问题（一个是不接触一个特么是重复生成，都要不接触就晃的问题

@@ -14,28 +14,52 @@ public class Cup_click : MonoBehaviour
     public Vector3 spawnPosition;//生成坐标
     public Transform parent;//父物体谢谢你
 
+    // 其它杯子
+    public Cup_click[] otherCups;
+
+    // 警告符
+    public GameObject warningObject;
+
+    private bool canCreate = true;
+
     void Start()
     {
-        // 按钮绑定事件
         if (redoButton != null)
             redoButton.onClick.AddListener(Redo);
-        else
-            Debug.LogWarning("未绑定重做按钮");
     }
 
     void OnMouseDown()
     {
-        if (obj != null) return; // 如果已经有一个杯子，避免重复生成
+        if (!canCreate)
+        {
+            if (warningObject != null)
+            {
+                warningObject.SetActive(true);
+            }
+            return;
+        }
 
-        obj = Instantiate(_Prefeb, parent);//使用父物体约束
+        if (obj != null)
+            return;
+
+        obj = Instantiate(_Prefeb, parent);
+
         obj.transform.localPosition = spawnPosition;
         obj.transform.localRotation = Quaternion.identity;
-        obj.transform.localScale = Vector3.one;
-
-
-        // 动画初始为 0，再放大
         obj.transform.localScale = Vector3.zero;
-        obj.transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
+
+        obj.transform
+            .DOScale(Vector3.one, 0.3f)
+            .SetEase(Ease.OutBack);
+
+        // 禁用其它杯子
+        foreach (Cup_click cup in otherCups)
+        {
+            if (cup != null)
+            {
+                cup.canCreate = false;
+            }
+        }
     }
 
     void Redo()
@@ -45,6 +69,26 @@ public class Cup_click : MonoBehaviour
             Destroy(obj);
             obj = null;
         }
+
+        // 恢复其它杯子
+        foreach (Cup_click cup in otherCups)
+        {
+            if (cup != null)
+            {
+                cup.canCreate = true;
+            }
+        }
     }
+    public void ResetCupState()
+    {
+        canCreate = true;
+
+        if (obj != null)
+        {
+            Destroy(obj);
+            obj = null;
+        }
+    }
+    //公共恢复
 }
 //其实这里还有一个bug：如果杯子一多那就会乱生成

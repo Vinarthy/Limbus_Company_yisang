@@ -10,7 +10,7 @@ public class FinishButtonHandler : MonoBehaviour
 
     private GameObject sourceCup;
     private Camera_Move C_M;
-
+    public Cup_click[] cupButtons;
     private void Start()
     {
         C_M = GetComponent<Camera_Move>();
@@ -49,6 +49,14 @@ public class FinishButtonHandler : MonoBehaviour
         script.names = (string[])names.Clone();
         //这个地方再来个操控摄像机的
         C_M.FirstAnimation();
+        //解除对旧杯子的控制
+        foreach (Cup_click cup in cupButtons)
+        {
+            if (cup != null)
+            {
+                cup.ResetCupState();
+            }
+        }
         Destroy(sourceCup); // 删除旧杯子
         gameObject.SetActive(false); // 按钮隐藏
     }

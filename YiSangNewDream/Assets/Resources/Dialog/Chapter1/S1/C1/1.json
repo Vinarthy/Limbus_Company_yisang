@@ -1,0 +1,39 @@
+{
+  "dialogList": [
+    {
+      "Name": "default",
+      "Speak": "我的心已然无处安放",
+      "Num": "1"
+    },
+    {
+      "Name": "default",
+      "Speak": "于是将微渺的期待",
+      "Num": "2"
+    },
+    {
+      "Name": "default",
+      "Speak": "命名为“研心”",
+      "Num": "3"
+    },
+    {
+      "Name": "default",
+      "Speak": "那随风而去的一缕",
+      "Num": "4"
+    },
+    {
+      "Name": "default",
+      "Speak": "近在咫尺",
+      "Num": "5"
+    },
+    {
+      "Name": "default",
+      "Speak": "却怎么也抓不住",
+      "Num": "6"
+    },
+    {
+      "Name": "default",
+      "Speak": "这个故事的结局还是否是希望?",
+      "Num": "7"
+    }
+  ]
+}

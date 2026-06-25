@@ -42,12 +42,23 @@ public class Wentin : MonoBehaviour
             });
     }
 
-    public void SceneMiddleStart()//开始的时候用一下，目的是达到“弹起来的效果”
+    public void SceneMiddleStart()
     {
         Vector3 originalScale = transform.localScale;
-        float originalY = originalScale.y;
-        transform.localScale = new Vector3(originalScale.x, 0f, originalScale.z);
-        transform.DOScale(originalScale, 0.1f);
+
+        Debug.Log("开始：" + originalScale);
+
+        transform.localScale = new Vector3(
+            originalScale.x,
+            0f,
+            originalScale.z
+        );
+
+        transform.DOScale(originalScale, 0.1f)
+            .OnComplete(() =>
+            {
+                Debug.Log("恢复完成：" + transform.localScale);
+            });
     }
 }
 

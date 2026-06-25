@@ -28,11 +28,17 @@ public class check1 : MonoBehaviour
             {
                 newdialog.x = 1;
                 newdialog.PlayNewPlot(SuccessPath);
+                Debug.Log("更新幕");
+                TimeBool.Instance.AdvanceType =
+                    StoryAdvanceType.Scene;
             }
             else
             {
                 newdialog.x = 2;
                 newdialog.PlayNewPlot(FailurePath);
+                Debug.Log("更新幕");
+                TimeBool.Instance.AdvanceType =
+                    StoryAdvanceType.Scene;
             }
             Destroy(other.gameObject);//这个没销毁掉啊贴图还在，到时候整一下
         }

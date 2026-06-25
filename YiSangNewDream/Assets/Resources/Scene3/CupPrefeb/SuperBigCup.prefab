@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4522634648388826157}
   - component: {fileID: 7811375842890720254}
   - component: {fileID: 3629896394539549947}
+  - component: {fileID: 866319843608012345}
   m_Layer: 0
   m_Name: SuperBigCup
   m_TagString: Cup
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8441277696211643105}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.55, y: -3.96, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
@@ -117,6 +118,33 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3.4399998, y: 3.2699997}
+  m_Offset: {x: 0.022381345, y: -0.076097846}
+  m_Size: {x: 2.6073952, y: 2.6073952}
   m_Direction: 0
+--- !u!114 &866319843608012345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441277696211643105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54d429bbb0a6764da2427399e3134fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Max_Tea_Num: 2
+  Max_Season_Num: 2
+  Bitter: 0
+  Sour: 0
+  Hot: 0
+  Sweet: 0
+  Thick: 0
+  salty: 0
+  fresh: 0
+  names:
+  - 
+  - 
+  - 
+  - 
+  Tea2: {fileID: 2652954116300531329, guid: 772fc29e65e607d45ab59b60435637e9, type: 3}
