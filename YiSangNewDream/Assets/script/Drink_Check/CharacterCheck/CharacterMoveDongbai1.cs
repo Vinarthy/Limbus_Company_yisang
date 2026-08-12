@@ -82,7 +82,7 @@ public class CharacterMoveDongbai1 : MonoBehaviour
                 case 8:
                     animator.SetInteger(FaceStateId, 0);
                     if (TimeBool.Instance != null)
-                        TimeBool.Instance.AdvanceType = StoryAdvanceType.Day;
+                        TimeBool.Instance.AdvanceType = StoryAdvanceType.Scene;
                     break;
 
                 default:

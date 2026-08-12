@@ -3,7 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class GalDayAdvanceOnComplete : MonoBehaviour
 {
+    public enum AdvanceType
+    {
+        Day,
+        Scene,
+        Chapter
+    }
+
     [SerializeField] private string targetScene = "Before";
+    [SerializeField] private AdvanceType advanceType = AdvanceType.Day;
 
     private GalControl galControl;
     private bool completed;
@@ -38,6 +46,12 @@ public class GalDayAdvanceOnComplete : MonoBehaviour
 
     private void OnPlaybackCompleted()
     {
+        AdvanceAndLoad();
+    }
+
+    // 其他脚本也可以调用它，复用相同的存档、销毁和切场景流程。
+    public void AdvanceAndLoad()
+    {
         if (completed)
             return;
 
@@ -49,7 +63,19 @@ public class GalDayAdvanceOnComplete : MonoBehaviour
             return;
         }
 
-        StoryManager.Instance.Nextday();
+        switch (advanceType)
+        {
+            case AdvanceType.Scene:
+                StoryManager.Instance.NextScene();
+                break;
+            case AdvanceType.Chapter:
+                StoryManager.Instance.Nextchapter();
+                break;
+            default:
+                StoryManager.Instance.Nextday();
+                break;
+        }
+
         StoryManager.Instance.SaveGame();
 
         Destroy(gameObject);

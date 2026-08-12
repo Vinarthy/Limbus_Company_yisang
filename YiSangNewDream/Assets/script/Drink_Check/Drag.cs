@@ -1,58 +1,69 @@
 using UnityEngine;
 using DG.Tweening;
+
 public class DragAndReturn2D : MonoBehaviour
 {
-    //拖拽代码
-    //用鼠标拖动一个 2D 物体
-    //松开鼠标时，物体会自动回到初始位置
-    //如果拖动过程中碰到带有 Cup 标签的 2D 触发器对象，会停止拖拽状态
     private Vector3 originalPosition;
     public bool isDragging = false;
-
     private Vector3 originalScale;
+    private GarbageBin garbageBin;
 
-    void Start()
+    private void Start()
     {
         originalPosition = transform.position;
         originalScale = transform.localScale;
     }
 
-    void OnMouseDown()
+    private void OnMouseDown()
     {
+        AudioManager.Instance.PlaySFX("fiction", 1);
         isDragging = true;
     }
 
-    void OnMouseDrag()
+    private void OnMouseDrag()
     {
-        if (isDragging)
-        {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0; // 保持2D平面
-            transform.position = mousePos;
-        }
+        if (!isDragging)
+            return;
+
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        transform.position = mousePos;
     }
 
-    void OnMouseUp()
+    private void OnMouseUp()
     {
-        if (isDragging != false)
+        if (!isDragging)
+            return;
+
+        if (garbageBin != null && garbageBin.TryDiscard(gameObject))
         {
-            transform.position = originalPosition;//回到原位置的动画
-
-            transform.DOKill();
-
-            // 从小到大
-            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            transform.DOScale(originalScale, 0.1f)
-                     .SetEase(Ease.OutBack);
             isDragging = false;
+            return;
         }
+
+        transform.position = originalPosition;
+        transform.DOKill();
+        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        transform.DOScale(originalScale, 0.1f).SetEase(Ease.OutBack);
+        isDragging = false;
     }
-    void OnTriggerEnter2D(Collider2D other)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Cup")
+        GarbageBin bin = other.GetComponent<GarbageBin>();
+        if (bin != null)
         {
-            isDragging = false;
+            garbageBin = bin;
+            return;
         }
+
+        if (other.CompareTag("Cup"))
+            isDragging = false;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.GetComponent<GarbageBin>() == garbageBin)
+            garbageBin = null;
     }
 }
-//现在是松开了如果碰到杯子的话那也就固定了，后面就是finish脚本的责任了其实

@@ -8,7 +8,8 @@ public class Tip : MonoBehaviour
     private DragAndReturn2D drag;
     private bool isHovering;
     public GameObject tip;
-    [SerializeField]private string Message;
+    [SerializeField][TextArea(3, 5)] 
+    private string Message;
     public GameObject canvas_;
 
     private GameObject tipInstance;//µ±Ç°ÊµÀý

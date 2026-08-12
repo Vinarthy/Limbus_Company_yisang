@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class FinishButtonHandler : MonoBehaviour
 {
+    public event System.Action DishServed;
+
     public GameObject teaPrefab;
 
     private int Bitter, Sour, Hot, Sweet, Thick, salty, fresh;
@@ -47,9 +49,9 @@ public class FinishButtonHandler : MonoBehaviour
         script.salty = salty;
         script.fresh = fresh;
         script.names = (string[])names.Clone();
-        //Õâ¸öµØ·½ÔÙÀ´¸ö²Ù¿ØÉãÏñ»úµÄ
+        //è¿™ä¸ªåœ°æ–¹å†æ¥ä¸ªæ“æ§æ‘„åƒæœºçš„
         C_M.FirstAnimation();
-        //½â³ı¶Ô¾É±­×ÓµÄ¿ØÖÆ
+        //è§£é™¤å¯¹æ—§æ¯å­çš„æ§åˆ¶
         foreach (Cup_click cup in cupButtons)
         {
             if (cup != null)
@@ -57,7 +59,8 @@ public class FinishButtonHandler : MonoBehaviour
                 cup.ResetCupState();
             }
         }
-        Destroy(sourceCup); // É¾³ı¾É±­×Ó
-        gameObject.SetActive(false); // °´Å¥Òş²Ø
+        Destroy(sourceCup); // åˆ é™¤æ—§æ¯å­
+        DishServed?.Invoke();
+        gameObject.SetActive(false); // æŒ‰é’®éšè—
     }
 }

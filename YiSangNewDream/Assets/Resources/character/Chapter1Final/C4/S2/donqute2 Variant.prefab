@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &783586265906415246
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 99735692032146839, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      propertyPath: m_Name
+      value: donqute2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850520887944564725, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850520887944564725, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850520887944564725, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850520887944564725, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850520887944564725, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850520887944564725, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850520887944564725, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850520887944564725, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850520887944564725, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850520887944564725, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4468639866009709466, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      propertyPath: path
+      value: Dialog/Chapter1/S5/2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4468639866009709466, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      propertyPath: characterList.Array.data[1].sceneObjectName
+      value: donqute2 Variant(Clone)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3363103298153530595, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+    - {fileID: 6005137445350227885, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 99735692032146839, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -850000000000001001}
+    - targetCorrespondingSourceObject: {fileID: 99735692032146839, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -850000000000001002}
+  m_SourcePrefab: {fileID: 100100000, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+--- !u!1 &845989105567988505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 99735692032146839, guid: c681a62eb90d49be9fe5d214ad5c75f9, type: 3}
+  m_PrefabInstance: {fileID: 783586265906415246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-850000000000001001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845989105567988505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d20e2b516094547842d98ac3a0f0001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  successPath: Dialog/Chapter1/S5/2T
+  failurePath: Dialog/Chapter1/S5/2F
+--- !u!114 &-850000000000001002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845989105567988505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d20e2b516094547842d98ac3a0f0002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followPath: Dialog/Chapter1/S5/2Follow

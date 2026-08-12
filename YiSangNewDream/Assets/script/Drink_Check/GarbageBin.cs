@@ -2,22 +2,49 @@ using UnityEngine;
 
 public class GarbageBin : MonoBehaviour
 {
-    [Header("销毁饮料后激活的物体")]
+    [Header("閿�姣侀ギ鏂欏悗婵�娲荤殑鐗╀綋")]
     public GameObject targetObject;
+
+    [Header("鍨冨溇妗剁洊鍔ㄧ敾")]
+    [SerializeField] private GarbageBinAnimation garbageBinAnimation;
+
+    private GameObject drinkInBin;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Drink"))
             return;
 
-        // 激活目标物体
-        if (targetObject != null)
-        {
-            targetObject.SetActive(true);
-        }
+        if (garbageBinAnimation == null)
+            garbageBinAnimation = GetComponent<GarbageBinAnimation>();
 
-        // 销毁饮料
-        Destroy(other.gameObject);
+        drinkInBin = other.gameObject;
+        garbageBinAnimation?.Open();
+
+        if (garbageBinAnimation != null && AudioManager.Instance != null)
+            AudioManager.Instance.PlaySFX("garbage");
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject != drinkInBin)
+            return;
+
+        drinkInBin = null;
+        garbageBinAnimation?.Close();
+    }
+
+    public bool TryDiscard(GameObject drink)
+    {
+        if (drink == null || drink != drinkInBin)
+            return false;
+
+        if (targetObject != null)
+            targetObject.SetActive(true);
+
+        Destroy(drink);
+        drinkInBin = null;
+        garbageBinAnimation?.Close();
+        return true;
     }
 }
-//回头加个小动画，移过来的时候垃圾桶开盖，鼠标松开的时候再销毁

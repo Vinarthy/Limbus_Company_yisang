@@ -1,0 +1,6 @@
+G:\LollyProject\YiSangNewDream\Temp\bin\Debug\Assembly-CSharp-firstpass.dll
+G:\LollyProject\YiSangNewDream\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+G:\LollyProject\YiSangNewDream\obj\Debug\Assembly-CSharp-firstpass.csproj.AssemblyReference.cache
+G:\LollyProject\YiSangNewDream\obj\Debug\Assembly-CSharp-firstpass.csproj.CoreCompileInputs.cache
+G:\LollyProject\YiSangNewDream\obj\Debug\Assembly-CSharp-firstpass.dll
+G:\LollyProject\YiSangNewDream\obj\Debug\Assembly-CSharp-firstpass.pdb

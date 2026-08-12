@@ -1,0 +1,34 @@
+{
+  "materials": [
+    {
+      "name": "奶粉",
+      "num": 1,
+      "description": "甜度+2 \n 浓稠度+1"
+    },
+    {
+      "name": "山茶花",
+      "num": 2,
+      "description": "甜度+1 \n 清新度+2"
+    },
+    {
+      "name": "魔法伞夫蛋",
+      "num": 3,
+      "description": "浓稠度+3\n咸度+2"
+    },
+    {
+      "name": "番茄酱",
+      "num": 4,
+      "description": "浓稠度+1\n咸度+1\n甜度+2"
+    },
+    {
+      "name": "橘子味果冻",
+      "num": 5,
+      "description": "浓稠度+2\n甜度+3"
+    },
+    {
+      "name": "安X瓶",
+      "num": 6,
+      "description": "清新度+4"
+    }
+  ]
+}

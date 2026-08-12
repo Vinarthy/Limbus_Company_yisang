@@ -1,0 +1,8 @@
+G:\LollyProject\YiSangNewDream\Temp\bin\Debug\Assembly-CSharp.dll
+G:\LollyProject\YiSangNewDream\Temp\bin\Debug\Assembly-CSharp.pdb
+G:\LollyProject\YiSangNewDream\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+G:\LollyProject\YiSangNewDream\obj\Debug\Assembly-CSharp.csproj.AssemblyReference.cache
+G:\LollyProject\YiSangNewDream\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+G:\LollyProject\YiSangNewDream\obj\Debug\Assembly.44154EF1.Up2Date
+G:\LollyProject\YiSangNewDream\obj\Debug\Assembly-CSharp.dll
+G:\LollyProject\YiSangNewDream\obj\Debug\Assembly-CSharp.pdb

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class dy_choose : MonoBehaviour
@@ -9,19 +10,23 @@ public class dy_choose : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("Êó±ê°´ÏÂÁËË¼ÃÜ´ï");
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        Debug.Log("ï¿½ï¿½ê°´ï¿½ï¿½ï¿½ï¿½Ë¼ï¿½Ü´ï¿½");
 
         click c = click.Instance;
 
         if (c == null)
         {
-            Debug.LogWarning("³¡¾°ÖÐÃ»ÓÐÕÒµ½clickµ¥Àý!");
+            Debug.LogWarning("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Òµï¿½clickï¿½ï¿½ï¿½ï¿½!");
             return;
         }
 
         if (TargetPrefeb == null)
         {
-            Debug.LogWarning("TargetPrefebÎª¿Õ!");
+            Debug.LogWarning("TargetPrefebÎªï¿½ï¿½!");
             return;
         }
 

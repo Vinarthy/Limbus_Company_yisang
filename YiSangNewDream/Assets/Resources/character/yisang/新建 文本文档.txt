@@ -1,0 +1,10 @@
+0  lixiang
+1  angary
+2  Cough
+3  cry
+4  cry2
+5  embarrassed
+6  scary
+7  smile
+8  smoke
+9  sorrow

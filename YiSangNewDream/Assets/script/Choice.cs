@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-//思路：选中角色之后，后面的white变成可见状态，鼠标离开之后变成不可见
-//搞了状态机之后就加几行代码的事情，先这么写
+//思路锟斤拷选锟叫斤拷色之锟襟，猴拷锟斤拷锟絯hite锟斤拷煽杉锟阶刺拷锟斤拷锟斤拷锟诫开之锟斤拷锟缴诧拷锟缴硷拷
+//锟斤拷锟斤拷状态锟斤拷之锟斤拷图蛹锟斤拷写锟斤拷锟斤拷锟斤拷锟介，锟斤拷锟斤拷么写
 public class Choice : MonoBehaviour
 {
 
@@ -20,7 +21,11 @@ public class Choice : MonoBehaviour
 
     void OnMouseEnter()
     {
-        // 当鼠标移入时，显示Black对象
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        // 锟斤拷锟斤拷锟斤拷锟斤拷锟绞憋拷锟斤拷锟绞綛lack锟斤拷锟斤拷
         if (Black != null)
         {
             Black.SetActive(true);
@@ -28,7 +33,7 @@ public class Choice : MonoBehaviour
     }
     void OnMouseExit()
     {
-        // 当鼠标移出时，隐藏Black对象
+        // 锟斤拷锟斤拷锟斤拷瞥锟绞憋拷锟斤拷锟斤拷锟紹lack锟斤拷锟斤拷
         if (Black != null)
         {
             Black.SetActive(false);

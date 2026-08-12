@@ -43,7 +43,8 @@ public class Cup_click : MonoBehaviour
             return;
 
         obj = Instantiate(_Prefeb, parent);
-
+        //这里该播放音频咯
+        AudioManager.Instance.PlaySFX("set", 1);
         obj.transform.localPosition = spawnPosition;
         obj.transform.localRotation = Quaternion.identity;
         obj.transform.localScale = Vector3.zero;

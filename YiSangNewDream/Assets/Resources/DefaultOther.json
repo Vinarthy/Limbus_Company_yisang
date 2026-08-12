@@ -1,0 +1,125 @@
+{
+  "Money": 500,
+  "Gallery": [
+    { "id": 1, "name": "堂吉诃德", "description": "中二少女，经常声称她看到的世界和正常人不一样，在交流中得知她其实会变身成为魔法少女在夜深人静的时候行侠仗义", "path": "character/DonQuixote/心事", "unlocked": true },
+    { "id": 2, "name": "冬柏", "description": "山茶花", "path": "character/Dongbaek/olddefault", "unlocked": false },
+    { "id": 3, "name": "东朗", "description": "在照料众生、于心灵中孕育丰硕果实的人生，和逃离九人会的阴影、如暴食般地渴求技术得到认可的人生之间，东朗似乎选择了后者。这样做的话，他一定是直面了心中的那头令他每每感到沉重不堪的小黄牛……并亲手杀死了它。", "path": "Assets/Resources/character/Dongrang/dongrang2", "unlocked": false },
+    { "id": 4, "name": "浮士德", "description": "Gesellscharft侦探事务所社员，电波系，口中时常会念念有词该次元之外的概念，自诩脑子中接入了穿梭平行世界的无线电波（看起来和传送枪是同一个原理）", "path": "character/Faust/black", "unlocked": false },
+    { "id": 5, "name": "施伦妮", "description": "塑造最割裂的。", "path": "character/Shrenne/mumble", "unlocked": true },
+    { "id": 6, "name": "亚细亚", "description": "一个地名。", "path": "character/Aseah/亚细亚", "unlocked": true },
+    { "id": 7, "name": "仇甫", "description": "纯种红眼果蝇和纯种白眼果蝇的f2后代中，红眼：白银约等于3：1。", "path": "character/Gubo/GUbo", "unlocked": true },
+    { "id": 8, "name": "鸿璐", "description": "有钱人和我也许确实不是生活在同一个世界的，对于他来说很正常的一句询问一般人来听就是活脱脱的挑衅，只不过这位少爷出手十分大方，只要让他高兴了他就会打赏以千计数的巨额财富或者稀有奢侈品。", "path": "character/HongLu/smile", "unlocked": true },
+    { "id": 9, "name": "罗佳", "description": "不温不火的自媒体，主要发布狠活挑战相关内容但是不温不火，她的梦想是有一天变成大red然后出人头地。", "path": "character/Rodio/embarrassed", "unlocked": true },
+    { "id": 10, "name": "尼古拉斯凯金", "description": "从前有一位首脑，他制定着都市的规则。在首脑的都市蒸蒸日上之时，有位红瞳女鬼敲开了他的门扉。\"和我签订契约吧！\"。首脑顶不住威逼利诱签下了契约，然而刚下笔，女鬼就变成了主美\"可恶的金智勋，叫你天天压榨我，我要让你体会到回不了家的绝望\"！于是小金被迫和雷横结婚过一辈子。", "path": "character/Kim Ji-hoon/这是你月总监，你敢和他对视一眼吗", "unlocked": true }
+  ],
+  "Tea": [
+    { "id": 1, "name": "tea1", "unlocked": true },
+    { "id": 2, "name": "tea2", "unlocked": true },
+    { "id": 3, "name": "tea3", "unlocked": true },
+    { "id": 4, "name": "tea4", "unlocked": false },
+    { "id": 5, "name": "tea5", "unlocked": false },
+    { "id": 6, "name": "tea6", "unlocked": false }
+  ],
+  "Season": [
+    { "id": 1, "name": "season1", "unlocked": true },
+    { "id": 2, "name": "season2", "unlocked": true },
+    { "id": 3, "name": "season3", "unlocked": false },
+    { "id": 4, "name": "season4", "unlocked": false },
+    { "id": 5, "name": "season5", "unlocked": false },
+    { "id": 6, "name": "season6", "unlocked": false },
+    { "id": 7, "name": "season7", "unlocked": false }
+  ],
+    "Shop":  [
+                 {
+                     "id":  1,
+                     "name":  "正常喵喵",
+                     "description":  "一无所有~一无所有~一无所有太好了~3301~3301~3301!",
+                     "path":  "Shop/cat1",
+                     "purchased":  false,
+                     "Type":  "Decorate"
+                 },
+                 {
+                     "id":  2,
+                     "name":  "招财喵喵",
+                     "description":  "由通灵宝玉打造而成的摆件，大家看到了之后会不由自主地多付一点小费，但是具体原因不为人知",
+                     "path":  "Shop/cat2",
+                     "purchased":  false,
+                     "Type":  "Decorate"
+                 },
+                 {
+                     "id":  3,
+                     "name":  "奶茶粉",
+                     "description":  "我没有在内涵某··的制作流程",
+                     "path":  "Scene3/milktea",
+                     "purchased":  false,
+                     "Type":  "Material",
+                     "targetType":  "Tea",
+                     "targetId":  5
+                 },
+                 {
+                     "id":  4,
+                     "name":  "精制抹茶粉",
+                     "description":  "上次去X寿司吃饭的时候都被用完了",
+                     "path":  "Shop/macha2",
+                     "purchased":  false,
+                     "Type":  "Material",
+                     "targetType":  "Tea",
+                     "targetId":  6
+                 },
+                 {
+                     "id":  5,
+                     "name":  "番茄果酱",
+                     "description":  "SummerDay的味道",
+                     "path":  "Scene3/Tomato",
+                     "purchased":  false,
+                     "Type":  "Material",
+                     "targetType":  "Season",
+                     "targetId":  4
+                 },
+                 {
+                     "id":  6,
+                     "name":  "安X瓶",
+                     "description":  "致敬K巢传奇游泳冠军",
+                     "path":  "Shop/K",
+                     "purchased":  false,
+                     "Type":  "Material",
+                     "targetType":  "Season",
+                     "targetId":  6
+                 },
+                 {
+                     "id":  7,
+                     "name":  "橘子味果冻",
+                     "description":  "老八秘制小零食，既实惠又管饱，怎么来的不要多问。",
+                     "path":  "Scene3/jelly",
+                     "purchased":  false,
+                     "Type":  "Material",
+                     "targetType":  "Season",
+                     "targetId":  5
+                 },
+                 {
+                     "id":  8,
+                     "name":  "waw",
+                     "description":  "真的没活了，小金更新什么我跟着更新什么",
+                     "path":  "Shop/BGM1",
+                     "purchased":  false,
+                     "Type":  "Music"
+                 },
+                 {
+                     "id":  9,
+                     "name":  "小酒",
+                     "description":  "作者成年了，如果你有闲钱的话可以请作者喝，虽然这个小游戏没有联网，就算请了作者作者也不知道老大您请了喵()",
+                     "path":  "Shop/小酒",
+                     "purchased":  false,
+                     "Type":  "Special"
+                 }
+             ],
+  "Decorate": [
+    { "name": "Default", "_comment": "装饰品内容，只记录一个","path":"000" }
+  ],
+  "Setting": [
+    { "Music": 75 }
+  ],
+  "Bag": [
+    { "Type": "Decorate", "name": "AlcoholCat", "id": 1, "ps": "这是每个类型下的id,背包是分类别存放的" }
+  ]
+}

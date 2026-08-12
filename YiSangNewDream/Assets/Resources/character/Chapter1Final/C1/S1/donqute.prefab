@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 48303010946596964}
   - component: {fileID: 2780686204566638125}
   - component: {fileID: 7015539744553669599}
+  - component: {fileID: -6461143742985989096}
   m_Layer: 0
   m_Name: donqute
   m_TagString: Untagged
@@ -277,3 +278,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0.24429135, y: -0.87385184}
   m_Size: {x: 2.2226129, y: 5.1091666}
   m_Direction: 0
+--- !u!114 &-6461143742985989096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484200954607494063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a67ef527c7ba67f4fb13cb1d2532e254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TipPrefab: {fileID: 1624939152245412758, guid: 4196b3a073172e340a5b5c18ffcfe3cf, type: 3}

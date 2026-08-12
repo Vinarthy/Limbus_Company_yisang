@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//Õâ¸ö½Å±¾¸ºÔğ¹ÜÀí¡°¿ªÊ¼ÖÆ×÷¡±°´Å¥°´ÏÂÈ¥µÄ²Ù×÷
+//è¿™ä¸ªè„šæœ¬è´Ÿè´£ç®¡ç†â€œå¼€å§‹åˆ¶ä½œâ€æŒ‰é’®æŒ‰ä¸‹å»çš„æ“ä½œ
 public class Product : MonoBehaviour
 {
-    //1.ÇĞ»»ÉãÏñ»ú½Ç¶È
-    //2.½ûÓÃÏÂÃæµÄ¡°³ö²Í¡±°´Å¥
-    //3.½ûÓÃ×ÔÉí
-    [Header("×ª»»²Ù×÷")]
+    public event System.Action ProductionStarted;
+
+    //1.åˆ‡æ¢æ‘„åƒæœºè§’åº¦
+    //2.ç¦ç”¨ä¸‹é¢çš„â€œå‡ºé¤â€æŒ‰é’®
+    //3.ç¦ç”¨è‡ªèº«
+    [Header("è½¬æ¢æ“ä½œ")]
     public GameObject controlobject;
     public GameObject FoodServing;
     private Camera_Move C_M;
@@ -19,6 +21,7 @@ public class Product : MonoBehaviour
     {
         C_M.SecondAnimation();
         FoodServing.SetActive(false);
+        ProductionStarted?.Invoke();
         gameObject.SetActive(false);
     }
 }

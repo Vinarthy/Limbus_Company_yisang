@@ -160,6 +160,27 @@ public class Plot_Dy : MonoBehaviour
         return null;
     }
 
+    public Transform GetCharacterTransform(string dialogName)
+    {
+        CharacterBubbleData data = GetCharacterData(dialogName);
+        if (data == null)
+        {
+            Debug.LogWarning($"未找到角色配置: {dialogName}", this);
+            return null;
+        }
+
+        if (data.characterObj == null)
+            data.characterObj = GameObject.Find(data.sceneObjectName);
+
+        if (data.characterObj == null)
+        {
+            Debug.LogWarning($"未找到场景角色对象: {data.sceneObjectName}", this);
+            return null;
+        }
+
+        return data.characterObj.transform;
+    }
+
     private IEnumerator DialogRoutine()
     {
         dialogFinished = false;

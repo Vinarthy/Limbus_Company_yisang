@@ -13,7 +13,8 @@ public class CharacterMoveDon2 : MonoBehaviour
         Pride2 = 4,
         Black = 5,
         Worries = 6,
-        oh = 7
+        oh = 7,
+        Guita = 11
     }
 
     private static readonly int FaceStateId = Animator.StringToHash("FaceState");
@@ -21,11 +22,16 @@ public class CharacterMoveDon2 : MonoBehaviour
     [Header("T/F 共用的后续剧情")]
     [SerializeField] private string followPath;
 
+    [Header("第7句吉他演出")]
+    [SerializeField] private string guitarBgmId = "Gebura";
+    [SerializeField, Min(0f)] private float guitarDuration = 8f;
+
     private RecordLineNumber record;
     private Plot_Dy plot;
     private GameObject produce;
     private Animator animator;
     private bool switchingToFollow;
+    private Coroutine guitarPerformance;
 
     private void Start()
     {
@@ -49,6 +55,9 @@ public class CharacterMoveDon2 : MonoBehaviour
     {
         if (record != null)
             record.OnLineChanged -= OnLineChanged;
+
+        if (guitarPerformance != null)
+            FinishGuitarPerformance();
     }
 
     private void OnLineChanged(int line)
@@ -130,7 +139,8 @@ public class CharacterMoveDon2 : MonoBehaviour
                 ChangeFace(FaceState.Pride2);
                 break;
             case 7:
-                ChangeFace(FaceState.Excited);
+                if (guitarPerformance == null)
+                    guitarPerformance = StartCoroutine(PlayGuitarPerformance());
                 break;
             case 14:
                 ChangeFace(FaceState.oh);
@@ -159,6 +169,42 @@ public class CharacterMoveDon2 : MonoBehaviour
         int value = (int)state;
         if (animator.GetInteger(FaceStateId) != value)
             animator.SetInteger(FaceStateId, value);
+    }
+
+    private IEnumerator PlayGuitarPerformance()
+    {
+        plot.SetDialogPaused(true);
+        ChangeFace(FaceState.Guita);
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PauseBGM();
+            AudioManager.Instance.PlaySecondaryBGM(guitarBgmId);
+        }
+        else
+        {
+            Debug.LogWarning("CharacterMoveDon2：不存在 AudioManager，吉他演出将静音播放。", this);
+        }
+
+        yield return new WaitForSeconds(Mathf.Max(0f, guitarDuration));
+
+        FinishGuitarPerformance();
+        guitarPerformance = null;
+    }
+
+    private void FinishGuitarPerformance()
+    {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopSecondaryBGM();
+            AudioManager.Instance.ResumeBGM();
+        }
+
+        if (animator != null)
+            ChangeFace(FaceState.Excited);
+
+        if (plot != null)
+            plot.SetDialogPaused(false);
     }
 
     private static void AdvanceScene()

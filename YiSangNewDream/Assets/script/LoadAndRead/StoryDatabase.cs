@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//¾çÇéÅäÖÃ±í£¬µ¥´¿²é±í£¬È·¶¨µÚ¼¸Ìì¶ÔÓ¦ÄÄ¸öÔ¤ÖÆ¼þ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ä¸ï¿½Ô¤ï¿½Æ¼ï¿½
 public class StoryDatabase : MonoBehaviour
 {
     public static StoryDatabase Instance;
@@ -16,11 +16,11 @@ public class StoryDatabase : MonoBehaviour
         InitStoryData();
     }
 
-    void InitStoryData()//ResourcesÏÂµÄÂ·¾¶
+    void InitStoryData()//Resourcesï¿½Âµï¿½Â·ï¿½ï¿½
     {
         AddNode(
             1, 0, 1,
-            "character/Chapter1Final/C1/S0/S1-2 Variant"//Õâ¸öÒªÔÚ±ðµÄ³¡¾°Éú³É¶øÇÒÌØÃ´ÒªÖ¸¶¨¸¸ÎïÌå£¬¿ª³¡Éú³ÉÖ®ºó¾Í¼ÌÐøÁË
+            "character/Chapter1Final/C1/S0/S1-2 Variant"
         );
 
         AddNode(
@@ -28,11 +28,11 @@ public class StoryDatabase : MonoBehaviour
             "character/Chapter1Final/C1/S1/donqute"
         );
 
-        AddNode(//µÚÈýÄ»
+        AddNode(//ï¿½ï¿½ï¿½ï¿½Ä»
             1, 1, 2,
             "character/Chapter1Final/C1/S2/ReCall Variant"
         );
-        AddNode(//µÚ2Ìì
+        AddNode(//ï¿½ï¿½2ï¿½ï¿½
             1, 2, 1,
             "character/Chapter1Final/C2/S1/FaustTouming"
         );
@@ -61,9 +61,37 @@ public class StoryDatabase : MonoBehaviour
             "character/Chapter1Final/C3/S3/Dongbai"
         );
         AddNode(
+            1, 3, 4,
+            "character/Chapter1Final/C3/S4/ReCall Variant"
+);
+        AddNode(
             1, 4, 1,
             "character/Chapter1Final/C4/S1/Rodio"
         );
+        AddNode(//ç‰›ç‰›æˆ‘ä¼šæƒ³ä½ çš„
+            1, 4, 2,
+            "character/Chapter1Final/C4/S2/donqute Variant"
+);
+        AddNode(
+            1, 4, 3,
+            "character/Chapter1Final/C4/S3/Dorang1"
+        );
+        AddNode(
+            1, 4, 4,
+            "character/Chapter1Final/C4/S4/ReCall Variant"
+        );
+        AddNode(
+            1,5,1,
+            "character/Chapter1Final/C5/S1/Dongbai Variant"
+            );
+        AddNode(
+            1, 6, 1,
+            "character/Chapter1Final/C6/S1/Dongbai Variant"
+            );
+        AddNode(
+            1, 6, 2,
+            "character/Chapter1Final/C6/S2/donqute Variant Variant"
+            );
     }
 
     void AddNode(
@@ -96,7 +124,7 @@ public class StoryDatabase : MonoBehaviour
             return storyMap[key];
         }
 
-        Debug.LogError("ÕÒ²»µ½¾çÇé½Úµã: " + key);
+        Debug.LogError("ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½: " + key);
 
         return null;
     }
@@ -109,4 +137,4 @@ public class StoryDatabase : MonoBehaviour
         return $"{chapter}_{day}_{scene}";
     }
 }
-//¸Ä±äÄØ£¿
+//ï¿½Ä±ï¿½ï¿½Ø£ï¿½

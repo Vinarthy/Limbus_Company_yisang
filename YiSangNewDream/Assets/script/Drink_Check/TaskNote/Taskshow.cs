@@ -6,12 +6,12 @@ using UnityEngine.EventSystems;
 
 public class Taskshow : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
 {
-    //Õâ¸ö½Å±¾¹Ü°´ÁË¶¥À¸È»ºóÏÔÊ¾ÈÎÎñµÄ½Å±¾
-    //ÀíÄîÊÇ´ÓÉÏÃæÒÆ¶¯ÏÂÀ´
-    //ÏÔÊ¾£ºÏÈtrueÔÙ´ÓÉÏÃæÒÆÏÂÀ´
-    //ÏûÊ§£ºÏÈÒÆÉÏÈ¥ÔÙÏûÊ§
-    //ÈÎÎñÄÚÈİ´«²ÎµÃÈÃ±ğµÄ½Å±¾¸ºÔğ¡£
-    //ÊıÖµ£ºÖ÷Òª¸ÄÎ»ÖÃµÄY£¬Ô­À´µÄYÊÇ-4.2£¬ĞèÒªËõ½øÈ¥µÄ»°yÊÇ3.75
+    //è¿™ä¸ªè„šæœ¬ç®¡æŒ‰äº†é¡¶æ ç„¶åæ˜¾ç¤ºä»»åŠ¡çš„è„šæœ¬
+    //ç†å¿µæ˜¯ä»ä¸Šé¢ç§»åŠ¨ä¸‹æ¥
+    //æ˜¾ç¤ºï¼šå…ˆtrueå†ä»ä¸Šé¢ç§»ä¸‹æ¥
+    //æ¶ˆå¤±ï¼šå…ˆç§»ä¸Šå»å†æ¶ˆå¤±
+    //ä»»åŠ¡å†…å®¹ä¼ å‚å¾—è®©åˆ«çš„è„šæœ¬è´Ÿè´£ã€‚
+    //æ•°å€¼ï¼šä¸»è¦æ”¹ä½ç½®çš„Yï¼ŒåŸæ¥çš„Yæ˜¯-4.2ï¼Œéœ€è¦ç¼©è¿›å»çš„è¯yæ˜¯3.75
     public GameObject TaskNote;
     private RectTransform rt;
 
@@ -29,7 +29,7 @@ public class Taskshow : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
     }
     void show()
     {
-        // ÏÈ¼¤»î
+        // å…ˆæ¿€æ´»
         TaskNote.SetActive(true);
         rt.DOKill();
         Vector2 pos = rt.anchoredPosition;
@@ -37,31 +37,46 @@ public class Taskshow : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
         rt.anchoredPosition = pos;
 
         rt.DOAnchorPosY(showY, 0.3f).SetEase(Ease.OutCubic);
+        //æ’­æ”¾å£°éŸ³ï¼ˆæ¥ä¸ªåˆ¤æ–­ï¼Œåˆ¤æ–­æ’­æ”¾å“ªä¸ªï¼‰ï¼Œæ ¹æ®å­˜æ¡£æ—¶é—´åˆ¤æ–­å‘—
+        palyaudio();
     }
 
     void unshow()
     {
-        // ·ÀÖ¹¶¯»­µş¼Ó
+        // é˜²æ­¢åŠ¨ç”»å åŠ 
         rt.DOKill();
 
-        // ÏòÉÏÒÆ¶¯Òş²Ø
+        // å‘ä¸Šç§»åŠ¨éšè—
         rt.DOAnchorPosY(hideY, 0.3f)
           .SetEase(Ease.OutCubic)
           .OnComplete(() =>
           {
-              TaskNote.SetActive(false); // ¶¯»­½áÊøÔÙÒş²Ø
+              TaskNote.SetActive(false); // åŠ¨ç”»ç»“æŸå†éšè—
           });
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Õ¹Ê¾ÈÎÎñ");
+        Debug.Log("å±•ç¤ºä»»åŠ¡");
         show();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("¹Ø±ÕÈÎÎñ");
+        Debug.Log("å…³é—­ä»»åŠ¡");
         unshow();
+    }
+    private void palyaudio()
+    {
+        if (AudioManager.Instance == null)
+            return;
+
+        bool playHajia = StoryManager.Instance != null
+            && StoryManager.Instance.currentData != null
+            && StoryManager.Instance.currentData.chapter == 1
+            && StoryManager.Instance.currentData.day == 3
+            && StoryManager.Instance.currentData.scene == 1;
+
+        AudioManager.Instance.PlaySFX(playHajia ? "hajia" : "book", 1f);
     }
 }

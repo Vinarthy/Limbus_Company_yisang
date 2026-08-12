@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6005137445350227885}
   - component: {fileID: 7673089389498682265}
   - component: {fileID: 426616014239580586}
+  - component: {fileID: 734918265401237856}
   m_Layer: 0
   m_Name: donqute2
   m_TagString: Untagged
@@ -242,3 +243,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TaskPath: "Dialog\\ProduceTask\\task - \u526F\u672C"
+--- !u!114 &734918265401237856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99735692032146839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71ec70ae835344edb48a53716353dc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
